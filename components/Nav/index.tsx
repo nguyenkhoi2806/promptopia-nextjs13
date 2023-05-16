@@ -43,34 +43,14 @@ const Nav = () => {
             <button type="button" onClick={signOut}>
               Sign out
             </button>
-            <Link href="/profile">
-              <Image
-                src="assets/images/logo.svg"
-                width={37}
-                height={37}
-                className="rounded-full"
-                alt="profile"
-                onClick={() => setToggleDropdown(!toggleDropdown)}
-              />
-            </Link>
-            {toggleDropdown && (
-              <div className="dropdown">
-                <Link
-                  href="/profile"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropdown(false)}
-                >
-                  My profile
-                </Link>
-                <Link
-                  href="/create-promtp"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropdown(false)}
-                >
-                  Create Prompt
-                </Link>
-              </div>
-            )}
+            <Image
+              src="assets/images/logo.svg"
+              width={37}
+              height={37}
+              className="rounded-full"
+              alt="profile"
+              onClick={() => setToggleDropdown(!toggleDropdown)}
+            />
           </div>
         ) : (
           <>
@@ -99,9 +79,36 @@ const Nav = () => {
               alt="profile"
               onClick={() => setToggleDropdown(!toggleDropdown)}
             />
+            {toggleDropdown && (
+              <div className="dropdown">
+                <Link href="/profile">My Profile</Link>
+                <Link href="/create-prompt">Create Prompt</Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setToggleDropdown(false);
+                    signOut();
+                  }}
+                  className="mt-5 w-full black_btn"
+                >
+                  Sign out
+                </button>
+              </div>
+            )}
           </div>
         ) : (
-          <></>
+          <>
+            {providers &&
+              Object.values(providers).map((provider: any) => (
+                <button
+                  type="button"
+                  key={providerButton}
+                  onClick={() => signIn(provider.id)}
+                >
+                  {provider.name}
+                </button>
+              ))}
+          </>
         )}
       </div>
     </nav>
