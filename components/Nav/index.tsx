@@ -1,24 +1,22 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import { useEffect, useId, useState } from "react";
 
 const Nav = () => {
-  const isUserLogin = true;
+  const { data: session } = useSession();
   const [providers, setProviders] = useState<any>();
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
 
   useEffect(() => {
-    const initProvider = async () => {
+    const setUpProvider = async () => {
       const response = await getProviders();
       setProviders(response);
     };
-    initProvider();
+    setUpProvider();
   }, []);
-
-  const signOut = () => null;
+ 
 
   const providerButton = useId();
 
@@ -35,16 +33,16 @@ const Nav = () => {
         <p className="logo_text">Promptopia</p>
       </Link>
       <div className="sm:flex hidden">
-        {isUserLogin ? (
+        {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link href="/create-prompt" className="black_btn">
               Create Post
             </Link>
-            <button type="button" onClick={signOut}>
+            <button type="button" onClick={() => signOut()}>
               Sign out
             </button>
             <Image
-              src="assets/images/logo.svg"
+            src={session?.user.image ?? ""}
               width={37}
               height={37}
               className="rounded-full"
@@ -58,10 +56,11 @@ const Nav = () => {
               Object.values(providers).map((provider: any) => (
                 <button
                   type="button"
+                  className="black_btn"
                   key={providerButton}
                   onClick={() => signIn(provider.id)}
                 >
-                  {provider.name}
+                  Sign in
                 </button>
               ))}
           </>
@@ -69,10 +68,10 @@ const Nav = () => {
       </div>
 
       <div className="sm:hidden flex relative">
-        {isUserLogin ? (
+        {session?.user ? (
           <div className="flex">
             <Image
-              src="assets/images/logo.svg"
+              src={session?.user.image ?? ""}
               width={37}
               height={37}
               className="rounded-full"

@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
     serverComponentsExternalPackages: ["mongoose"],
   },
-  image: { domains: ["lh3.googleusercontent.com"] },
+  images: { domains: ["lh3.googleusercontent.com"] },
   webpack(config) {
     config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
