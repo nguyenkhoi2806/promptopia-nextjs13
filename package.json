@@ -11,15 +11,15 @@
   },
   "lint-staged": {
     "app/*.{js,jsx,json,tsx,ts}": [
-      "prettier --write .",
+      "prettier --write --ignore-unknown",
       "eslint . --fix"
     ],
     "components/*.{js,jsx,json,tsx,ts}": [
-      "prettier --write .",
+      "prettier --write --ignore-unknown",
       "eslint . --fix"
     ],
     "models/*.{js,jsx,json,tsx,ts}": [
-      "prettier --write .",
+      "prettier --write --ignore-unknown",
       "eslint . --fix"
     ],
     "styles/*": [
@@ -39,6 +39,7 @@
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "lint-staged": "^13.2.2",
     "mongodb": "^5.5.0",
     "mongoose": "^7.1.1",
     "next": "13.4.2",
