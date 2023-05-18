@@ -11,23 +11,23 @@
   },
   "lint-staged": {
     "app/*.{js,jsx,json,tsx,ts}": [
-      "eslint . --fix",
-      "prettier --write ."
+      "prettier --write .",
+      "eslint . --fix"
     ],
     "components/*.{js,jsx,json,tsx,ts}": [
-      "eslint . --fix",
-      "prettier --write ."
+      "prettier --write .",
+      "eslint . --fix"
     ],
     "models/*.{js,jsx,json,tsx,ts}": [
-      "eslint . --fix",
-      "prettier --write ."
+      "prettier --write .",
+      "eslint . --fix"
     ],
     "styles/*": [
       "prettier --write ."
     ],
     "utils/*": [
-      "eslint . --fix",
-      "prettier --write ."
+      "prettier --write .",
+      "eslint . --fix"
     ]
   },
   "dependencies": {
