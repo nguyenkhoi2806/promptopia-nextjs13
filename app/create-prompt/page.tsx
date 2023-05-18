@@ -1,6 +1,26 @@
+'use client';
+
+import Form from "@components/Form";
+import { useState } from "react";
+
 const CreatePrompt = () => {
+  const [submitting, setSubmitting] = useState(false);
+  const[post, setPost] = useState({
+    prompt: '',
+    tag: ''
+  });
+
+  const createPrompt = async (e: Event) => {
+
+  } 
+  
   return (
-    <div>Create prompt</div>
+    <Form
+      type="Create"
+      post={post}
+      setPost={setPost}
+      handleSubmit={createPrompt}
+    />
   )
 }
 
