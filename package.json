@@ -10,15 +10,15 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "app/*.{js,jsx,json}": [
+    "app/*.{js,jsx,json,tsx,ts}": [
       "eslint . --fix",
       "prettier --write ."
     ],
-    "components/*.{js,jsx,json}": [
+    "components/*.{js,jsx,json,tsx,ts}": [
       "eslint . --fix",
       "prettier --write ."
     ],
-    "models/*.{js,jsx,json}": [
+    "models/*.{js,jsx,json,tsx,ts}": [
       "eslint . --fix",
       "prettier --write ."
     ],
