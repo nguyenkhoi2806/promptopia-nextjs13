@@ -10,23 +10,23 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "app/*.{js,jsx,json,tsx,ts}": [
-      "prettier --write --ignore-unknown",
+    "app/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
       "eslint . --fix"
     ],
-    "components/*.{js,jsx,json,tsx,ts}": [
-      "prettier --write --ignore-unknown",
+    "components/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
       "eslint . --fix"
     ],
-    "models/*.{js,jsx,json,tsx,ts}": [
-      "prettier --write --ignore-unknown",
+    "models/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
       "eslint . --fix"
     ],
     "styles/*": [
-      "prettier --write ."
+      "prettier --write"
     ],
     "utils/*": [
-      "prettier --write .",
+      "prettier --write",
       "eslint . --fix"
     ]
   },
