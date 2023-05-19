@@ -14,7 +14,13 @@ interface PromptCardInterface {
 
 const PromptCard = (props: PromptCardInterface) => {
   const { prompt, handleTagList, handleEdit, handleDelete } = props;
-  const [copied, setCoped] = useState<string>('');
+  const [copied, setCopied] = useState<string>('');
+
+  const handleCopy = () => {
+    setCopied(prompt.prompt);
+    navigator.clipboard.writeText(prompt.prompt);
+    setTimeout(() => setCopied(''), 3000);
+  };
 
   return (
     <div className="prompt_card">
@@ -35,7 +41,7 @@ const PromptCard = (props: PromptCardInterface) => {
               {prompt.creator.email}
             </p>
           </div>
-          <div className="copy_btn" onClick={() => {}}>
+          <div className="copy_btn" onClick={handleCopy}>
             <Image
               src={
                 copied === prompt.prompt
