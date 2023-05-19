@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install", 
+    "prepare": "husky install",
     "precommit": "lint-staged"
   },
   "husky": {
@@ -16,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "app/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write .",
       "eslint . --fix"
     ]
