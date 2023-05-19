@@ -19,18 +19,6 @@
     "app/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write .",
       "eslint . --fix"
-    ], 
-    "components/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write .",
-      "eslint . --fix"
-    ],
-    "models/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write .",
-      "eslint . --fix"
-    ],
-    "util/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write .",
-      "eslint . --fix"
     ]
   },
   "dependencies": {
