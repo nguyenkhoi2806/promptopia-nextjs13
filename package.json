@@ -28,7 +28,7 @@
       "prettier --write .",
       "eslint . --fix"
     ],
-    "utils/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "util/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write .",
       "eslint . --fix"
     ]
