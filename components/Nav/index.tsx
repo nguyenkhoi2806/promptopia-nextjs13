@@ -1,8 +1,8 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { getProviders, signIn, signOut, useSession } from "next-auth/react";
-import { useEffect, useId, useState } from "react";
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { getProviders, signIn, signOut, useSession } from 'next-auth/react';
+import { useEffect, useId, useState } from 'react';
 
 const Nav = () => {
   const { data: session } = useSession();
@@ -16,7 +16,6 @@ const Nav = () => {
     };
     setUpProvider();
   }, []);
- 
 
   const providerButton = useId();
 
@@ -42,7 +41,7 @@ const Nav = () => {
               Sign out
             </button>
             <Image
-            src={session?.user.image ?? ""}
+              src={session?.user.image ?? ''}
               width={37}
               height={37}
               className="rounded-full"
@@ -71,7 +70,7 @@ const Nav = () => {
         {session?.user ? (
           <div className="flex">
             <Image
-              src={session?.user.image ?? ""}
+              src={session?.user.image ?? ''}
               width={37}
               height={37}
               className="rounded-full"
