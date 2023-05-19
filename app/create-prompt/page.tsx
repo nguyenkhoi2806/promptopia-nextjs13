@@ -1,7 +1,7 @@
 'use client';
 
 import Form from '@components/Form';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
