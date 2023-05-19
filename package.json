@@ -7,26 +7,29 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install", 
+    "precommit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
   },
   "lint-staged": {
     "app/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
+      "prettier --write .",
       "eslint . --fix"
-    ],
+    ], 
     "components/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
+      "prettier --write .",
       "eslint . --fix"
     ],
-    "models/**/*.{js,jsx,ts,tsx}": [
-      "prettier --write ./",
+    "models/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write .",
       "eslint . --fix"
     ],
-    "styles/**/*": [
-      "prettier --write"
-    ],
-    "utils/**/*": [
-      "prettier --write",
+    "utils/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write .",
       "eslint . --fix"
     ]
   },
@@ -51,7 +54,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "husky": "^8.0.0",
+    "husky": "^8.0.3",
     "prettier": "2.8.8"
   }
 }

@@ -1,12 +1,15 @@
+import Link from "next/link";
+
 interface FormProps {
   type: string;
   post: any;
   setPost: (object: any) => void;
   handleSubmit: (e: any) => void;
+  submitting: boolean
 }
 
 const Form = (props: FormProps) => {
-  const { type, post, setPost, handleSubmit } = props;
+  const { type, post, setPost, handleSubmit, submitting } = props;
 
   return (
     <section
@@ -35,6 +38,32 @@ const Form = (props: FormProps) => {
               placeholder="Write your prompt here..."
               className="form_textarea"/>
             </label>
+            <label>
+              <span className="font-satoshi font-semibold text-base text-gray-700">
+                  Tag 
+                  <span className="font-normal ml-2">(#product, #webdevelopment, #idea)</span>
+              </span>
+              <input value={post.tag}
+              onChange={e => setPost({
+                ...post, 
+                tag: e.target.value
+              })}
+              required
+              placeholder="#tag"
+              className="form_input"/>
+            </label>
+            <div className="flex-end -max-3 mb-5 gap-4">
+                  <Link href="/" className="text-gray-500 text-sm">
+                  Cancel
+                  </Link>
+
+                  <button type="submit" disabled={submitting}
+                  className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white">
+                  {
+                    submitting ? `${type}...` : type  
+                  }
+                  </button>
+            </div>
       </form>
     </section>
   );
