@@ -2,6 +2,7 @@ import User from '@models/api/user';
 import { connectToDB } from '@utils/database';
 import NextAuth from 'next-auth/next';
 import GoogleProvider from 'next-auth/providers/google';
+import slugify from 'slugify';
 
 const handler = NextAuth({
   providers: [
@@ -24,16 +25,19 @@ const handler = NextAuth({
         const userExists = await User.findOne({
           email: profile.email,
         });
-
+        console.log(profile);
         if (!userExists) {
           await User.create({
             email: profile.email,
-            username: profile.name.replace(' ', '').toLowerCase(),
+            username:
+              slugify(profile.name, { lower: true, replacement: '' }) +
+              profile.exp,
             image: profile.picture,
           });
         }
         return true;
       } catch (error) {
+        console.log(error);
         return false;
       }
     },
