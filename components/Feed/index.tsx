@@ -1,5 +1,6 @@
 'use client';
 import PromptCard from '@components/PromptCard';
+import Post from '@models/post';
 import { useEffect, useState } from 'react';
 
 const Feed = () => {
@@ -35,7 +36,7 @@ const Feed = () => {
 
       <div>
         <div className="mt-16 prompt_layout">
-          {posts.map((post: any) => (
+          {posts.map((post: Post) => (
             <PromptCard key={post._id} post={post} handleTagList={() => null} />
           ))}
         </div>

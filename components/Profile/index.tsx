@@ -1,8 +1,8 @@
 import PromptCard from '@components/PromptCard';
 
 interface ProfileProps {
-  name: String;
-  desc: String;
+  name: string;
+  desc: string;
   data: any[];
   handleEdit: (post: any) => void;
   handleDelete: (post: any) => void;

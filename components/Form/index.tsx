@@ -1,8 +1,9 @@
+import Post from '@models/post';
 import Link from 'next/link';
 
 interface FormProps {
   type: string;
-  post: any;
+  post: Post;
   setPost: (object: any) => void;
   handleSubmit: (e: any) => void;
   submitting: boolean;

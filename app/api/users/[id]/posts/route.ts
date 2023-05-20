@@ -1,4 +1,4 @@
-import Prompt from '@models/prompt';
+import Prompt from '@models/api/prompt';
 import { connectToDB } from '@utils/database';
 
 export const GET = async (request: any, { params }: any) => {

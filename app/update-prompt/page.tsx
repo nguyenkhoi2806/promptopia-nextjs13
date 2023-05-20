@@ -1,13 +1,14 @@
 'use client';
 
 import Form from '@components/Form';
+import Post from '@models/post';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
 const UpdatePrompt = () => {
   const [submitting, setSubmitting] = useState(false);
-  const [post, setPost] = useState({
+  const [post, setPost] = useState<Post>({
     prompt: '',
     tag: '',
   });
