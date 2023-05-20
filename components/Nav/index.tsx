@@ -40,14 +40,16 @@ const Nav = () => {
             <button type="button" onClick={() => signOut()}>
               Sign out
             </button>
-            <Image
-              src={session?.user.image ?? ''}
-              width={37}
-              height={37}
-              className="rounded-full"
-              alt="profile"
-              onClick={() => setToggleDropdown(!toggleDropdown)}
-            />
+            <Link href="/profile">
+              <Image
+                src={session?.user.image ?? ''}
+                width={37}
+                height={37}
+                className="rounded-full"
+                alt="profile"
+                onClick={() => setToggleDropdown(!toggleDropdown)}
+              />
+            </Link>
           </div>
         ) : (
           <>

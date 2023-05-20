@@ -4,8 +4,8 @@ interface ProfileProps {
   name: String;
   desc: String;
   data: any[];
-  handleEdit: (prompt: any) => void;
-  handleDelete: (prompt: any) => void;
+  handleEdit: (post: any) => void;
+  handleDelete: (post: any) => void;
 }
 
 const Profile = (props: ProfileProps) => {
@@ -18,12 +18,12 @@ const Profile = (props: ProfileProps) => {
       </h1>
       <p className="desc text-left">{desc}</p>
       <div className="mt-10 prompt_layout ">
-        {data.map((prompt: any) => (
+        {data.map((post: any) => (
           <PromptCard
-            key={prompt._id}
-            prompt={prompt}
-            handleEdit={() => handleEdit(prompt)}
-            handleDelete={() => handleDelete(prompt)}
+            key={post._id}
+            post={post}
+            handleEdit={() => handleEdit(post)}
+            handleDelete={() => handleDelete(post)}
           />
         ))}
       </div>

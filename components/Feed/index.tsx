@@ -35,12 +35,8 @@ const Feed = () => {
 
       <div>
         <div className="mt-16 prompt_layout">
-          {posts.map((prompt: any) => (
-            <PromptCard
-              key={prompt._id}
-              prompt={prompt}
-              handleTagList={() => null}
-            />
+          {posts.map((post: any) => (
+            <PromptCard key={post._id} post={post} handleTagList={() => null} />
           ))}
         </div>
       </div>
