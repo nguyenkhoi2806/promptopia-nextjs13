@@ -2,7 +2,6 @@ import '@styles/globals.css';
 
 import Nav from '@components/Nav';
 import Provider from '@components/Provider';
-import { useSession } from 'next-auth/react';
 
 export const metadata = {
   title: 'Promptopia',
@@ -15,11 +14,10 @@ interface LayoutProps {
 
 const RootLayout = (props: LayoutProps) => {
   const { children } = props;
-  const { data: session } = useSession();
   return (
     <html lang="en">
       <body>
-        <Provider session={session}>
+        <Provider>
           <div className="main">
             <div className="gradient"></div>
           </div>
