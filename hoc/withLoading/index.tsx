@@ -4,6 +4,7 @@ import Loading from '@/components/Loading';
 interface withLoadingProps {
   isLoading: boolean;
   className?: string;
+  [attribute: string]: any;
 }
 
 const withLoading =
