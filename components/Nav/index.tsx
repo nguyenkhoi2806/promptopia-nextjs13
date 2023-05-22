@@ -19,6 +19,12 @@ const Nav = () => {
 
   const providerButton = useId();
 
+  const handleSignOut = () => {
+    signOut({
+      callbackUrl: process.env.NEXTAUTH_URL,
+    });
+  };
+
   return (
     <nav className="flex-between w-full mb-16 pt-3">
       <Link href="/" className="flex gap-2 flex-center">
@@ -37,7 +43,7 @@ const Nav = () => {
             <Link href="/create-prompt" className="black_btn">
               Create Post
             </Link>
-            <button type="button" onClick={() => signOut()}>
+            <button type="button" onClick={handleSignOut}>
               Sign out
             </button>
             <Link href="/profile">
@@ -87,7 +93,7 @@ const Nav = () => {
                   type="button"
                   onClick={() => {
                     setToggleDropdown(false);
-                    signOut();
+                    handleSignOut();
                   }}
                   className="mt-5 w-full black_btn"
                 >

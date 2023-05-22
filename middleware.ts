@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { withAuth } from 'next-auth/middleware';
 
 export const config = {
-  matcher: ['/profile'],
+  matcher: ['/profile', '/create-prompt'],
 };
 
 export default withAuth(
