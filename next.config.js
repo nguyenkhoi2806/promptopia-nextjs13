@@ -4,13 +4,16 @@ const nextConfig = {
     appDir: true,
     serverComponentsExternalPackages: ['mongoose'],
   },
-  images: { domains: ['lh3.googleusercontent.com'] },
+  images: {
+    domains: [
+      'lh3.googleusercontent.com',
+      'plus.unsplash.com',
+      'images.unsplash.com',
+    ],
+  },
   webpack(config) {
     config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
-  },
-  env: {
-    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   },
 };
 module.exports = nextConfig;
