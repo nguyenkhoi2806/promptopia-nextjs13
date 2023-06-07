@@ -1,4 +1,4 @@
-interface UnplashImage {
+interface UnsplashImage {
   description: string;
   user: {
     username: string;
@@ -10,4 +10,4 @@ interface UnplashImage {
   height: number;
 }
 
-export default UnplashImage;
+export default UnsplashImage;

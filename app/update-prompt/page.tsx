@@ -13,7 +13,6 @@ const UpdatePrompt = () => {
     tag: '',
   });
 
-  const { data: session } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
   const promptID = searchParams.get('id');

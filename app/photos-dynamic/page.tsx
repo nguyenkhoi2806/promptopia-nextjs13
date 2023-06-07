@@ -1,3 +1,4 @@
+import { Alert } from '@components/Flowbite';
 import UnsplashImage from '@models/unsplash-image';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,11 +23,11 @@ const Photos = async () => {
   const height = (width / images.width) * images.height;
 
   return (
-    <div className="d-flex flex-column align-items-center">
-      <div className="m-auto">
+    <div className="d-flex flex-column align-items-center align-middle">
+      <Alert className="mb-5">
         This page <strong>fetches data dynamically</strong>
         Every time you refresh the page, you get a new image from Unsplash api.
-      </div>
+      </Alert>
       <Image
         src={images.urls.raw}
         width={width}

@@ -31,6 +31,8 @@
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "flowbite": "^1.6.5",
+    "flowbite-react": "^0.4.7",
     "lint-staged": "^13.2.2",
     "mongodb": "^5.5.0",
     "mongoose": "^7.1.1",
