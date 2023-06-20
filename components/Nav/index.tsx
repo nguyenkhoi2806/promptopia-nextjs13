@@ -38,12 +38,6 @@ const Nav = () => {
         <p className="logo_text">Promptopia</p>
       </Link>
       <div className="sm:flex hidden ">
-        <button type="button" className="mr-5">
-          <Link href="/photos-dynamic">Photos dynamic</Link>
-        </button>
-        <button type="button" className="mr-5">
-          <Link href="/photos-static">Photos static</Link>
-        </button>
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link href="/create-prompt" className="black_btn">
