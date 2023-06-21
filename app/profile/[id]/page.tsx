@@ -1,5 +1,4 @@
 import Profile from '@components/Profile';
-import User from '@models/user';
 
 const fetchPostsByUserId = async (userId: string) => {
   const response = await fetch(
@@ -11,24 +10,19 @@ const fetchPostsByUserId = async (userId: string) => {
   return await response.json();
 };
 
-const fetchUserWithId = async (userId: string) => {
-  const response = await fetch(`http://localhost:3000/api/users/${userId}`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  const user = await response.json();
-  return user as User;
-};
-
-const ProfileDetail = async ({ params }: { params: { id: string } }) => {
+const ProfileDetail = async ({
+  params,
+  searchParams,
+}: {
+  params: { id: string };
+  searchParams: { [key: string]: string };
+}) => {
   const posts = await fetchPostsByUserId(params.id);
-  const user = await fetchUserWithId(params.id);
-  console.log(user);
 
   return (
     <Profile
-      name={user.username}
-      desc={`Welcome to ${user.username} profile page`}
+      name={searchParams.name}
+      desc={`Welcome to ${searchParams.name} profile page . Explore ${searchParams.name}'s exceptional prompts and be inspired by the power of their imagination`}
       data={posts}
     />
   );
