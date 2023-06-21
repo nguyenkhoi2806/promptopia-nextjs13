@@ -2,9 +2,10 @@
 
 import Post from '@models/post';
 import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 interface PromptCardInterface {
   post: Post;
@@ -25,17 +26,26 @@ const PromptCard = (props: PromptCardInterface) => {
     setTimeout(() => setCopied(''), 3000);
   };
 
+  const profileLink = useMemo(() => {
+    if (post.creator?._id === session?.user.id) {
+      return '/profile';
+    }
+    return '/profile/' + post.creator?._id;
+  }, [post, session]);
+
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
         <div className="flex justify-center gap-3 cursor-pointer">
-          <Image
-            src={post?.creator?.image ?? ''}
-            width={40}
-            height={40}
-            className="rounded-full object-contain"
-            alt="user_image"
-          />
+          <Link href={profileLink}>
+            <Image
+              src={post?.creator?.image ?? ''}
+              width={40}
+              height={40}
+              className="rounded-full object-contain"
+              alt="user_image"
+            />
+          </Link>
           <div className="flex flex-col">
             <h3 className="font-satoshi font-semibold text-gray-900">
               {post?.creator?.username}

@@ -4,8 +4,8 @@ interface ProfileProps {
   name: string;
   desc: string;
   data: any[];
-  handleEdit: (post: any) => void;
-  handleDelete: (post: any) => void;
+  handleEdit?: (post: any) => void;
+  handleDelete?: (post: any) => void;
 }
 
 const Profile = (props: ProfileProps) => {
@@ -22,8 +22,8 @@ const Profile = (props: ProfileProps) => {
           <PromptCard
             key={post._id}
             post={post}
-            handleEdit={() => handleEdit(post)}
-            handleDelete={() => handleDelete(post)}
+            handleEdit={handleEdit && (() => handleEdit(post))}
+            handleDelete={handleDelete && (() => handleDelete(post))}
           />
         ))}
       </div>
